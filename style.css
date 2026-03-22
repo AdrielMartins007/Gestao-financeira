@@ -1,0 +1,92 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e2e8f0;
+    padding: 20px;
+}
+
+main #titulo{
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 600;      
+}
+
+main #caixa-info{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main .info{
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 16px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info{
+    transform: translateY(-5px);
+}
+
+.info p{
+    margin-bottom: 30px;
+}
+
+main #caixa-despesas{
+    background: #1e293b;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+#caixa-despesas .despesas{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.despesas p{
+    margin: 10px 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 5px;
+
+}
+
+main #botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#caixa-despesas button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #16a34a;
+}
