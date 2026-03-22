@@ -5,11 +5,15 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* TELA PRINCIPAL */
+
 body{
     background: linear-gradient(135deg, #0f172a, #020617);
     color: #e2e8f0;
     padding: 20px;
 }
+
+/* TITULO DO SITE */
 
 main #titulo{
     font-size: 24px;
@@ -17,12 +21,16 @@ main #titulo{
     font-weight: 600;      
 }
 
+/* CAIXINHAS DE INFORMAÇÃO COMO SALDO E VALOR TOTAL */
+
 main #caixa-info{
     display: flex;
     gap: 20px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+/* INFORMAÇÕES DENTRO DA CAIXINHA DE INFORMAÇÃOS */
 
 main .info{
     background: #1e293b;
@@ -36,13 +44,19 @@ main .info{
     margin-top: 20px;
 }
 
+/* ANIMAÇÃO DENTRO DA CAIXINHA */
+
 .info{
     transform: translateY(-5px);
 }
 
+/* TEXTOS DA INFORMAÇÃPO */
+
 .info p{
     margin-bottom: 30px;
 }
+
+/* CAIXA DE DESPESA */
 
 main #caixa-despesas{
     background: #1e293b;
@@ -51,6 +65,8 @@ main #caixa-despesas{
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
+
+/* INFORMAÇÕES DENTRO DA CAIXA DE DESPESA */
 
 #caixa-despesas .despesas{
     font-size: 25px;
@@ -68,11 +84,15 @@ main #caixa-despesas{
 
 }
 
+/* CAIXINHA DE BOTAO */
+
 main #botao{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* BUTTON */
 
 #caixa-despesas button{
     padding: 12px 20px;
@@ -86,6 +106,8 @@ main #botao{
     margin-top: 20px;
     font-size: 15px;
 }
+
+/* ANIMAÇÃO AO PASSAR O MOUSE POR CIMA DO BOTAO */
 
 button:hover {
     background: #16a34a;
