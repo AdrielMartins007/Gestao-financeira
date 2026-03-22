@@ -112,3 +112,74 @@ main #botao{
 button:hover {
     background: #16a34a;
 }
+
+/* ------------------------- PAGINA DE INCLUIR DESPESAS -------------------------*/
+
+#tela-novas-despesas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#titulo-tela-novo{
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+body #tela-novo{
+    background-color: #1e293b;
+    width: 40%;
+    height: 80vh;
+    border-radius: 20px;
+    box-shadow: 0px 1px 20px black;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+main .caixa-tipo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.caixa-tipo .tipo-despesa{
+    background-color: #22c55ec7;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    width: 25%;
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+main #input-valor{
+    width: 90%;
+    margin: 50px auto;
+    display: block;
+    border-radius: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 20px;
+}
+
+main #botao-tela-novo{
+    text-align: center;
+}
+
+#botao-tela-novo #botao-novo{
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 22px;
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    margin-top: 50px;
+    cursor: pointer;
+}
