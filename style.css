@@ -16,7 +16,7 @@ body{
 /* TITULO DO SITE */
 
 main #titulo{
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 30px;
     font-weight: 600;      
 }
@@ -126,7 +126,7 @@ button:hover {
     font-size: 40px;
     text-align: center;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 body #tela-novo{
@@ -157,15 +157,45 @@ main .caixa-tipo{
     cursor: pointer;
 }
 
-main #input-valor{
+#selecao-categoria{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#selecao-categoria select{
+    margin-top: 20px;
     width: 90%;
-    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+main #input-descricao{
+    width: 90%;
+    margin: 20px auto;
     display: block;
     border-radius: 20px;
     text-align: center;
     box-sizing: border-box;
     font-size: 20px;
     padding: 20px;
+}
+
+main #input-valor{
+    width: 90%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 20px;
+}
+
+h2{
+    text-align: center;
 }
 
 main #botao-tela-novo{
@@ -180,6 +210,5 @@ main #botao-tela-novo{
     background-color: #22c55e;
     color: white;
     font-weight: bold;
-    margin-top: 20px;
     cursor: pointer;
 }

@@ -32,11 +32,4 @@ class Financeiro{
     }
 }
 
-$usuario = new Financeiro;
-$usuario->iniciar();
-$usuario->valorSaldo(200);
-$usuario->valorDespesa(20);
-$usuario->valorDespesa(250);
-$usuario->verificarSaldoTotal();
-
 ?>

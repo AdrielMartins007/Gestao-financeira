@@ -12,14 +12,29 @@
 
     <main id="tela-novo">
 
-        <div id="titulo-tela-novo">
-            Incluir nova despesa
-        </div>
+        <div id="titulo-tela-novo">Incluir Nova Despesa</div>
 
         <div id="valor">
-            <input id="input-valor" type="text" placeholder="DESCRIÇÃO">
-            <input id="input-valor" type="text" placeholder="SELECIONTE O TIPO">
-            <input id="input-valor" type="Number" placeholder="INSIRA O VALOR">
+
+            <h2>Informe a descrição da despesa</h2>
+            <input id="input-descricao" type="text">
+
+            <div id="selecao-categoria">
+
+                <h2>Selecione a Categoria da despesa</h2>
+                <select name="categoria" id="selecaoCategoria">
+                    <option value="alimentacao">Alimentação</option>
+                    <option value="transporte">Transporte</option>
+                    <option value="feira">Feira</option>
+                    <option value="outros">Outros</option>
+                </select>
+
+
+            </div>
+
+            <h2>Informe o valor da despesa</h2>
+            <input id="input-valor" type="Number">
+
         </div>
 
         <div id="botao-tela-novo">
