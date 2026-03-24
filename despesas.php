@@ -1,3 +1,9 @@
+<?php 
+
+require_once 'Financeiro.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

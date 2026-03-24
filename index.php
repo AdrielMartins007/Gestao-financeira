@@ -1,3 +1,11 @@
+<?php
+
+require_once 'Financeiro.php';
+
+$usuario = new Financeiro();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,29 +28,49 @@
 
             <div class="info">
                 <p>Saldo Conta:</p>
-                R$: 20.000,00
+                <?php
+
+                echo number_format($usuario->saldo, 3, '.');
+
+                ?>
             </div>
 
             <div class="info">
                 <p>Total Despesas:</p>
-                R$: 14.235,34
+                <?php
+
+                echo number_format($usuario->despesa, 3, '.');
+
+                ?>
             </div>
 
             <div class="info">
                 <p>Saldo Total:</p>
-                R$: 5.764,66
+                <?php
+
+                echo number_format($usuario->saldoTotal, 3, '.');
+
+                ?>
             </div>
 
         </div>
 
         <div id="caixa-despesas">
-            <div class="despesas"><p>Alimentação: R$: 3.558,835</p></div>
+            <div class="despesas">
+                <p>Alimentação: R$: 3.558,835</p>
+            </div>
 
-            <div class="despesas"><p>Gasolina: R$: 3.558,835</p></div>
+            <div class="despesas">
+                <p>Gasolina: R$: 3.558,835</p>
+            </div>
 
-            <div class="despesas"><p>Feira: R$: 3.558,835</p></div>
+            <div class="despesas">
+                <p>Feira: R$: 3.558,835</p>
+            </div>
 
-            <div class="despesas"><p>Outros Gastos: R$: 3.558,835</p></div>
+            <div class="despesas">
+                <p>Outros Gastos: R$: 3.558,835</p>
+            </div>
 
             <div id="botao">
                 <button onclick="window.location.href = 'despesas.html'">+ Adicionar outras despesas</button>
