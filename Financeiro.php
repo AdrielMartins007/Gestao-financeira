@@ -2,32 +2,35 @@
 
 class Financeiro
 {
+    public $tipoDespesa;
+    public $valorDespesa;
     public $saldo;
-    public $despesa;
-    public $saldoTotal;
+    public $valorTotal;
+
+    public static $lista = [];
 
     public function __construct()
     {
-        $this->saldo = 20.000;
-        $this->despesa = 15.000;
-        $this->saldoTotal = 5.000;
+        $this->tipoDespesa = "";
+        $this->valorDespesa = "";
+        $this->saldo = "";
+        $this->valorTotal = "";
     }
 
-    function valorSaldo($saldo)
-    {
-        $this->saldo = $saldo;
-        echo 'Adicionado ' . $saldo . ' reais a conta.<br>';
+    public function enviardados($tipoDespesa, $valorDespesa){
+        self::$lista[] = [
+            'tipo' => $tipoDespesa,
+            'valor' => $valorDespesa
+        ];
+
+        echo "<script>alert('Dados enviados com sucesso!');
+        window.location.href = 'index.php';
+        </script>";
     }
 
-    function valorDespesa($despesa)
-    {
-        $this->despesa = $despesa;
-        echo 'Adicionado ' . $despesa . ' reais a despesa.<br>';
-    }
-
-    function verificarSaldoTotal()
-    {
-        $resultado = $this->saldo - $this->despesa;
-        echo 'Saldo total: ' . $resultado . ' reais.';
+    public function mostrarDespesas(){
+        foreach(self::$lista as $valor){
+            echo "tipo: " . $valor['tipo'] . " | Valor: " . $valor['valor']; 
+        }
     }
 }

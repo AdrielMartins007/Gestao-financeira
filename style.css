@@ -141,7 +141,7 @@ body #tela-novo{
     padding: 20px;
 }
 
-main .caixa-tipo{
+form .caixa-tipo{
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
@@ -174,7 +174,7 @@ main .caixa-tipo{
     font-size: 25px;
 }
 
-main #input-descricao{
+form #input-descricao{
     width: 90%;
     margin: 20px auto;
     display: block;
@@ -185,7 +185,7 @@ main #input-descricao{
     padding: 20px;
 }
 
-main #input-valor{
+form #input-valor{
     width: 90%;
     margin: 20px auto;
     display: block;
@@ -200,7 +200,7 @@ h2{
     text-align: center;
 }
 
-main #botao-tela-novo{
+form #botao-tela-novo{
     text-align: center;
 }
 

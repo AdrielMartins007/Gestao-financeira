@@ -1,6 +1,9 @@
-<?php 
+<?php
 
 require_once 'Financeiro.php';
+
+$usuario = new Financeiro;
+$usuario->enviardados($_POST['nomeDespesa'], $_POST['valorDespesa']);
 
 ?>
 
@@ -16,14 +19,14 @@ require_once 'Financeiro.php';
 
 <body id="tela-novas-despesas">
 
-    <main id="tela-novo">
+    <form id="tela-novo" method="post">
 
         <div id="titulo-tela-novo">Incluir Nova Despesa</div>
 
         <div id="valor">
 
             <h2>Informe a descrição da despesa</h2>
-            <input id="input-descricao" type="text">
+            <input id="input-descricao" type="text" name="nomeDespesa">
 
             <div id="selecao-categoria">
 
@@ -39,15 +42,15 @@ require_once 'Financeiro.php';
             </div>
 
             <h2>Informe o valor da despesa</h2>
-            <input id="input-valor" type="Number">
+            <input id="input-valor" type="Number" name="valorDespesa">
 
         </div>
 
         <div id="botao-tela-novo">
-            <button id="botao-novo" onclick="window.location.href = 'index.html'">Incluir</button>
+            <button id="botao-novo" type="submit">Incluir</button>
         </div>
 
-    </main>
+    </form>
 
 </body>
 
