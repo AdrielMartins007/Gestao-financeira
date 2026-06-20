@@ -1,28 +1,17 @@
 <?php
 
-session_start();
-
 require_once "classes/Usuario.php";
 
-if (isset($_POST['entrar'])) {
+if (isset($_POST['cadastrar'])) {
     $usuario = new Usuario();
 
-    $dados = $usuario->login(
+    $usuario->cadastrar(
+        $_POST['nome'],
         $_POST['email'],
         $_POST['senha']
     );
 
-    if ($dados) {
-        $_SESSION['id_usuario'] =
-            $dados['id_usuario'];
-
-        $_SESSION['nome'] =
-            $dados['nome'];
-
-        header("Location: dashboard.php");
-    } else {
-        echo "Login inválido";
-    }
+    header("Location: index.php");
 }
 
 ?>
@@ -31,7 +20,7 @@ if (isset($_POST['entrar'])) {
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -39,9 +28,14 @@ if (isset($_POST['entrar'])) {
 
     <div class="container">
 
-        <h2>Login</h2>
+        <h2>Cadastrar Usuário</h2>
 
         <form method="POST">
+
+            <input type="text"
+                name="nome"
+                placeholder="Nome"
+                required>
 
             <input type="email"
                 name="email"
@@ -54,15 +48,13 @@ if (isset($_POST['entrar'])) {
                 required>
 
             <button type="submit"
-                name="entrar">
-                Entrar
+                name="cadastrar">
+                Cadastrar
             </button>
 
         </form>
 
-        <a href="cadastrarUsuario.php">
-            Criar Conta
-        </a>
+        <a href="index.php">Voltar</a>
 
     </div>
 
