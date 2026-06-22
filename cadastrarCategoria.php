@@ -25,6 +25,36 @@ if (isset($_POST['cadastrar'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<style>
+    body {
+        background: linear-gradient(#9cba9f, white, #9cba9f);
+        background-attachment: fixed;
+    }
+
+    button {
+        width: 30%;
+        display: block;
+        border-radius: 15px;
+        box-shadow: 0px 1px 3px black;
+        margin: auto;
+        background-color: #2c6c51;
+        color: white;
+    }
+
+    button:hover {
+        background-color: darkolivegreen;
+    }
+
+    input, select{
+        width: 90%;
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+</style>
+
 <body>
 
     <div class="container">

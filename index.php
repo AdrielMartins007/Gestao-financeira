@@ -35,6 +35,57 @@ if (isset($_POST['entrar'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<style>
+    h2{
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 30px;
+    }
+
+    body {
+        background: linear-gradient(#9cba9f, white, #9cba9f);
+        background-attachment: fixed;
+    }
+
+    .container{
+        box-shadow: 0px 1px 5px black;
+    }
+
+    input {
+        width: 90%;
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+
+    button {
+        width: 30%;
+        display: block;
+        margin: 20px auto;
+        border-radius: 12px;
+        box-shadow: 0px 1px 3px black;
+        background-color: #2c6c51;
+        color: white;
+    }
+
+    button:hover{
+        background-color: darkolivegreen;
+    }
+
+    #criarConta {
+        font-size: 11px;
+    }
+
+    #criarConta:hover{
+        text-decoration: underline;
+    }
+
+    a:hover{
+        color: black;
+    }
+</style>
+
 <body>
 
     <div class="container">
@@ -60,9 +111,11 @@ if (isset($_POST['entrar'])) {
 
         </form>
 
-        <a href="cadastrarUsuario.php">
-            Criar Conta
-        </a>
+        <div id="criarConta">
+            <a href="cadastrarUsuario.php">
+                Não possui uma conta? Cadastre-se agora!
+            </a>
+        </div>
 
     </div>
 

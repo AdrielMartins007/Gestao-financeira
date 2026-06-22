@@ -18,6 +18,41 @@ $dados =
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+<style>
+    body {
+        background: linear-gradient(#9cba9f, white, #9cba9f);
+        background-attachment: fixed;
+    }
+
+    th{
+        background-color: #2c6c51;
+    }
+
+    #btnVoltar{
+        width: 15%;
+        display: block;
+        margin: auto;
+        border-radius: 15px;
+        box-shadow: 0px 1px 3px black;
+        background-color: #2c6c51;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #btnVoltar:hover{
+        background-color: darkolivegreen;
+    }
+
+    .editarExcluir{
+        color: #2c6c51;
+    }
+
+    .editarExcluir:hover{
+        color: green;
+    }
+</style>
+
 <body>
 
     <div class="container">
@@ -58,13 +93,11 @@ $dados =
 
                     <td>
 
-                        <a href="editarTransacao.php?id=<?= $linha['id_transacao']; ?>">
+                        <a href="editarTransacao.php?id=<?= $linha['id_transacao']; ?>" class="editarExcluir">
                             Editar
                         </a>
 
-                        |
-
-                        <a href="excluirTransacao.php?id=<?= $linha['id_transacao']; ?>">
+                        <a href="excluirTransacao.php?id=<?= $linha['id_transacao']; ?>" class="editarExcluir">
                             Excluir
                         </a>
 
@@ -79,7 +112,7 @@ $dados =
 
         <br>
 
-        <a href="dashboard.php">
+        <a href="dashboard.php" id="btnVoltar">
             Voltar
         </a>
 
