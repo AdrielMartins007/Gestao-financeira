@@ -4,24 +4,24 @@ session_start();
 
 require_once "classes/Usuario.php";
 
-if (isset($_POST['entrar'])) {
-    $usuario = new Usuario();
+if (isset($_POST['entrar'])) { /* CONDICAO QUE QUANDO O BOTAO ENTRAR FOR CLICADO... */
+    $usuario = new Usuario(); /* É CRIADO UM NOVO OBJETO USUARIO */
 
-    $dados = $usuario->login(
+    $dados = $usuario->login( /* É CHAMADA A FUNCAO LOGIN E MANDADO OS DADOS QUE O USUARIO INSERIU */
         $_POST['email'],
         $_POST['senha']
     );
 
-    if ($dados) {
+    if ($dados) { /* CONDICAO QUE VERIFICA SE OS DADOS BATEM COM OS CADASTRADOS NO BANCO DE DADOS*/
         $_SESSION['id_usuario'] =
             $dados['id_usuario'];
 
         $_SESSION['nome'] =
             $dados['nome'];
 
-        header("Location: dashboard.php");
+        header("Location: dashboard.php"); /* SE TUDO DER CERTO, É MANDADO PARA A TELA PRINCIPAL */
     } else {
-        echo "Login inválido";
+        echo "Login inválido"; /* CASO CONTRARIO, MENSAGEM DE ERRO */
     }
 }
 

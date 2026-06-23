@@ -2,15 +2,15 @@
 
 require_once "classes/Transacao.php";
 
-$transacao = new Transacao();
+$transacao = new Transacao(); /* CRIANDO UM NOVO OBJETO */
 
-$id = $_GET['id'];
+$id = $_GET['id'];  /* VARIAVEL ONDE SERÁ INSERIDO O ID DE TRANSAÇÃO QUE ESTÁ NO ARQUIVO 'listarTranscoes.php' */
 
 $dados =
-    $transacao->buscar($id);
+    $transacao->buscar($id); /* CHAMANDO A FUNCAO DE BUSCAR TRANSAÇÃO DENTRO DO BANCO DE DADOS */
 
-if (isset($_POST['editar'])) {
-    $transacao->editar(
+if (isset($_POST['editar'])) { /* CONDICAO PARA ASSIM QUE O BOTA FOR CLICADO... */
+    $transacao->editar( /* É CHAMADA A FUNCAO EDITAR COM O ENVIO DOS DADOS ATUALIZADOS PARA O BANCO DE DADOS */
         $id,
         $_POST['descricao'],
         $_POST['valor'],

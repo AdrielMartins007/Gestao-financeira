@@ -1,13 +1,13 @@
 <?php
 
-session_start();
+session_start(); /* INCIANDO A SESSAO DO USUARIO */
 
 require_once "classes/Categoria.php";
 
-if (isset($_POST['cadastrar'])) {
+if (isset($_POST['cadastrar'])) { /* CONDIÇÃO PARA AO CLICAR O BOTAO CADASTRAR, UM NOVO OBJETO É CRIADO */
     $categoria = new Categoria();
 
-    $categoria->cadastrar(
+    $categoria->cadastrar( /* EM SEGUIDA A FUNCAO CADASTRAR É EXECUTADA COM O ENVIO DOS DADOS */
         $_POST['nome'],
         $_POST['tipo'],
         $_SESSION['id_usuario']

@@ -2,18 +2,18 @@
 
 session_start();
 
-require_once "classes/Transacao.php";
+require_once "classes/Transacao.php"; /* IMPORTANDO DADOS DO ARQUIVO PHP */
 require_once "classes/Categoria.php";
 
-$categoria = new Categoria();
+$categoria = new Categoria(); /* CRIANDO UM NOVO OBJETO */
 
 $categorias =
-    $categoria->listar($_SESSION['id_usuario']);
+    $categoria->listar($_SESSION['id_usuario']); /* ENVIANDO O ID DO USUARIO LOGADO */
 
-if (isset($_POST['salvar'])) {
+if (isset($_POST['salvar'])) { /* CLICANDO NO BOTAO SALVAR, É CRIADO UM NOVO OBJETO */
     $transacao = new Transacao();
 
-    $transacao->cadastrar(
+    $transacao->cadastrar( /* EM SEGUIDA É CHAMADA A FUNCAO CADASTRAR COM O ENVIO DOS DADOS */
         $_POST['descricao'],
         $_POST['valor'],
         $_POST['data'],
@@ -101,12 +101,12 @@ if (isset($_POST['salvar'])) {
 
             <select name="categoria">
 
-                <?php
+                <?php /* COMANDO SQL PARA BUSCAR TODAS AS CATEGORIAS CADASTRADAS NO BANCO DE DADOS */
                 while ($cat =
                     $categorias->fetch_assoc()
                 ) {
-                ?>
-                    <option
+                ?> <!-- CRIANDO AS OPÇÕES COM AS CATEGORIAS CADASTRADAS -->
+                    <option 
                         value="<?= $cat['id_categoria']; ?>">
                         <?= $cat['nome']; ?>
                     </option>

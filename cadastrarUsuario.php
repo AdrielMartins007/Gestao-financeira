@@ -2,10 +2,10 @@
 
 require_once "classes/Usuario.php";
 
-if (isset($_POST['cadastrar'])) {
+if (isset($_POST['cadastrar'])) { /* COMANDO PARA QUANDO O BOTAO CADASTRAR FOR CLICADO, UM NOVO OBJETO É CRIADO... */
     $usuario = new Usuario();
 
-    $usuario->cadastrar(
+    $usuario->cadastrar( /* E É CHAMADO A FUNCAO PARA O ENVIO DOS DADOS DO NOVO USUARIO */
         $_POST['nome'],
         $_POST['email'],
         $_POST['senha']

@@ -4,28 +4,28 @@ session_start();
 
 require_once "classes/Transacao.php";
 
-$transacao = new Transacao();
+$transacao = new Transacao(); /* CRIANDO UM NOVO OBJETO */
 
-$dados = $transacao->listar($_SESSION['id_usuario']);
+$dados = $transacao->listar($_SESSION['id_usuario']); /* CHAMANDO A FUNCAO LISTAR */
 
-$receitas = 0;
+$receitas = 0; /* VARIAVEIS QUE VAO ARMAZENAR VALORES PARA CALCULOS */
 $despesas = 0;
 
 $qtdReceitas = 0;
 $qtdDespesas = 0;
 
-while ($linha = $dados->fetch_assoc()) {
+while ($linha = $dados->fetch_assoc()) { /* LAÇO DE REPETIÇÃO PARA PEGAR VALORES DE TRANSAÇÃO */
 
-    if ($linha['tipo'] == "Receita") {
+    if ($linha['tipo'] == "Receita") { /* CALCULO QUE SOMA VALORES DE RECEITAS */
         $receitas += $linha['valor'];
         $qtdReceitas++;
     } else {
         $despesas += $linha['valor'];
-        $qtdDespesas++;
+        $qtdDespesas++; /* CALCULO QUE SOMA VALORES DE DESPESAS */
     }
 }
 
-$saldo = $receitas - $despesas;
+$saldo = $receitas - $despesas; /* CALCULO SIMPLES PARA CALCULAR O SALDO */
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $saldo = $receitas - $despesas;
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- IMPORTANDO A BIBLIOTECA PARA PODER CRIAR OS GRAFICOS -->
 </head>
 
 <style>
@@ -135,7 +135,7 @@ $saldo = $receitas - $despesas;
     </div>
 
     <script>
-        new Chart(
+        new Chart( /* COMANDO JAVASCRIPT PARA A CRIAÇÃO DOS GRAFICOS */
             document.getElementById('graficoPizza'), {
                 type: 'pie',
                 data: {

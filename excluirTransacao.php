@@ -2,10 +2,10 @@
 
 require_once "classes/Transacao.php";
 
-$transacao = new Transacao();
+$transacao = new Transacao(); /* CRIANDO UM NOVO OBJETO */
 
-$transacao->excluir(
-    $_GET['id']
+$transacao->excluir( /* EXECUTANDO A FUNCAO EXLUIR */
+    $_GET['id'] /* PEGANDO O ID DA TRANSAÇAO QUE FOI MANDADO NO ARQUIVO 'listarTransacoes.php' */
 );
 
 header(

@@ -2,23 +2,23 @@
 
 session_start();
 
-if (!isset($_SESSION['id_usuario'])) {
+if (!isset($_SESSION['id_usuario'])) { /* CONDIÇÃO PARA SE CASO O USUARIO NAO TIVER CONECTADO, VOLTA PARA A TELA DE LOGIN */
     header("Location: index.php");
 }
 
 require_once "classes/Transacao.php";
 
-$transacao = new Transacao();
+$transacao = new Transacao(); /* CRIANDO UM NOVO OBJETO */
 
-$dados =
+$dados = /* CRIACAO DA VARIAVEL ONDE É CHAMADA A FUNCAO DE LISTAR AS TRANSAÇÕES CADASTRADAS NO USUARIO LOGADO */
     $transacao->listar(
         $_SESSION['id_usuario']
     );
 
-$receitas = 0;
+$receitas = 0; /* VARIAVEIS ONDE IRAO RECEBER VALORES */
 $despesas = 0;
 
-while ($linha =
+while ($linha = /* ARRAY QUE PERCORRE AS TRANSAÇÕES E EXECUTA O CALCULO */
     $dados->fetch_assoc()
 ) {
     if ($linha['tipo'] == "Receita") {
@@ -30,7 +30,7 @@ while ($linha =
     }
 }
 
-$saldo =
+$saldo = /* VARIAVEL QUE VAI RECEBER O VALOR DO CALCULO */
     $receitas - $despesas;
 ?>
 
@@ -110,15 +110,15 @@ $saldo =
 
         <h2 id="titulo">
             Boas vindas,
-            <?php echo $_SESSION['nome']; ?>.
+            <?php echo $_SESSION['nome']; ?>. <!-- COMANDO SQL PARA MOSTRAR O NOME DO USUARIO QUE ESTA LOGADO -->
         </h2>
 
         <div id="cards">
             <div class="cartao">
                 <h3>
                     Receitas:
-                    R$ <?= number_format(
-                            $receitas,
+                    R$ <?= number_format( /* MUDANDO O FORMATO DO NUMERO PARA INCLUIR O PONTO E A VIRGULA */
+                            $receitas, /* MOSTRANDO O VALOR QUE ESTA DENTRO DA VARIAVEL RECEITAS */
                             2,
                             ',',
                             '.'
