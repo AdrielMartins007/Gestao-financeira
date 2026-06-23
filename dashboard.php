@@ -36,6 +36,7 @@ $saldo = /* VARIAVEL QUE VAI RECEBER O VALOR DO CALCULO */
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Painel</title>
     <link rel="stylesheet" href="css/style.css">
@@ -45,23 +46,20 @@ $saldo = /* VARIAVEL QUE VAI RECEBER O VALOR DO CALCULO */
     body {
         background: linear-gradient(#9cba9f, white, #9cba9f);
         background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
         margin: 0px;
         padding: 0px;
         box-sizing: border-box;
-        height: 100vh;
+        height: 90vh;
     }
 
     #titulo {
         font-family: 'Segoe UI', sans-serif;
-        margin-bottom: 20px;
-        margin-top: 0px;
     }
 
     .container {
         text-align: center;
         width: 65%;
+        margin: 20px auto;
     }
 
     .container a {
@@ -94,12 +92,12 @@ $saldo = /* VARIAVEL QUE VAI RECEBER O VALOR DO CALCULO */
         border-radius: 12px;
     }
 
-    .ladoAlado{
+    .ladoAlado {
         justify-content: space-around;
         display: flex;
     }
 
-    #btnSair{
+    #btnSair {
         width: 120px;
     }
 </style>

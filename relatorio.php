@@ -43,10 +43,13 @@ $saldo = $receitas - $despesas; /* CALCULO SIMPLES PARA CALCULAR O SALDO */
     body {
         background: linear-gradient(#9cba9f, white, #9cba9f);
         background-attachment: fixed;
+        height: 100vh;
     }
 
-    .container{
+    .container {
+        text-align: center;
         width: 80%;
+        margin: 20px auto;
     }
 
     #titulo {
@@ -91,9 +94,9 @@ $saldo = $receitas - $despesas; /* CALCULO SIMPLES PARA CALCULAR O SALDO */
     }
 
     #btnVoltar {
-        width: 150px;
+        width: 120px;
         display: block;
-        margin: 30px auto;
+        margin: 20px auto;
         border-radius: 15px;
         box-shadow: 0px 1px 3px black;
         background-color: #2c6c51;

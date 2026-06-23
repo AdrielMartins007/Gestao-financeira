@@ -24,11 +24,17 @@ $dados =
         background-attachment: fixed;
     }
 
-    th{
+    th {
         background-color: #2c6c51;
     }
 
-    #btnVoltar{
+    .container {
+        text-align: center;
+        width: 65%;
+        margin: 20px auto;
+    }
+
+    #btnVoltar {
         width: 15%;
         display: block;
         margin: auto;
@@ -40,16 +46,16 @@ $dados =
         padding: 10px;
     }
 
-    #btnVoltar:hover{
+    #btnVoltar:hover {
         background-color: darkolivegreen;
     }
 
-    .editarExcluir{
+    .editarExcluir {
         color: #2c6c51;
     }
 
-    .editarExcluir:hover{
-        color: green;
+    .editarExcluir:hover {
+        color: black;
     }
 </style>
 

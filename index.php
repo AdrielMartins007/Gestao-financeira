@@ -39,6 +39,7 @@ if (isset($_POST['entrar'])) { /* CONDICAO QUE QUANDO O BOTAO ENTRAR FOR CLICADO
     h2{
         font-family: 'Segoe UI', sans-serif;
         font-size: 30px;
+        color: #1b4232;
     }
 
     body {
@@ -84,11 +85,26 @@ if (isset($_POST['entrar'])) { /* CONDICAO QUE QUANDO O BOTAO ENTRAR FOR CLICADO
     a:hover{
         color: black;
     }
+
+    #imagem{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    img{
+        width: 220px;
+        margin: auto;
+        display: block;
+    }
 </style>
 
 <body>
 
     <div class="container">
+
+        <div id="imagem">
+            <img src="img/nome-logo-site.png" alt="logo do financeiro">
+        </div>
 
         <h2>Login</h2>
 
