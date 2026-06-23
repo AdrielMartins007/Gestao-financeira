@@ -49,6 +49,7 @@ if (isset($_POST['entrar'])) { /* CONDICAO QUE QUANDO O BOTAO ENTRAR FOR CLICADO
 
     .container{
         box-shadow: 0px 1px 5px black;
+        margin-top: 30px;
     }
 
     input {

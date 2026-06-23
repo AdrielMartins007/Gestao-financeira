@@ -48,19 +48,42 @@ if (isset($_POST['salvar'])) { /* CLICANDO NO BOTAO SALVAR, É CRIADO UM NOVO OB
         margin: auto;
         background-color: #2c6c51;
         color: white;
+        font-size: 15px;
     }
 
-    button:hover{
+    a {
+        width: 30%;
+        display: block;
+        border-radius: 15px;
+        box-shadow: 0px 1px 3px black;
+        margin: auto;
+        background-color: #2c6c51;
+        color: white;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .botao{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    button:hover {
         background-color: darkolivegreen;
     }
 
-    input, select{
+    input,
+    select {
         width: 90%;
         text-align: center;
         display: block;
         margin: 10px auto;
         border-radius: 10px;
         border: 1px solid black;
+    }
+
+    .container {
+        margin-top: 30px;
     }
 </style>
 
@@ -106,7 +129,7 @@ if (isset($_POST['salvar'])) { /* CLICANDO NO BOTAO SALVAR, É CRIADO UM NOVO OB
                     $categorias->fetch_assoc()
                 ) {
                 ?> <!-- CRIANDO AS OPÇÕES COM AS CATEGORIAS CADASTRADAS -->
-                    <option 
+                    <option
                         value="<?= $cat['id_categoria']; ?>">
                         <?= $cat['nome']; ?>
                     </option>
@@ -116,9 +139,15 @@ if (isset($_POST['salvar'])) { /* CLICANDO NO BOTAO SALVAR, É CRIADO UM NOVO OB
 
             </select>
 
-            <button name="salvar">
-                Salvar
-            </button>
+            <div class="botao">
+                <button name="salvar">
+                    Salvar
+                </button>
+
+                <a href="dashboard.php" id="btnVoltar">
+                    Voltar
+                </a>
+            </div>
 
         </form>
 
