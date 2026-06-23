@@ -169,7 +169,7 @@ $saldo =
             </a>
 
             <a href="relatorio.php" class="botaoAcao">
-                Relatório
+                Gráficos
             </a>
         </div>
 

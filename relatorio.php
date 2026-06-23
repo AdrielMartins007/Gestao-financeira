@@ -6,36 +6,37 @@ require_once "classes/Transacao.php";
 
 $transacao = new Transacao();
 
-$dados =
-    $transacao->listar(
-        $_SESSION['id_usuario']
-    );
+$dados = $transacao->listar($_SESSION['id_usuario']);
 
 $receitas = 0;
 $despesas = 0;
 
-while ($linha =
-    $dados->fetch_assoc()
-) {
+$qtdReceitas = 0;
+$qtdDespesas = 0;
+
+while ($linha = $dados->fetch_assoc()) {
+
     if ($linha['tipo'] == "Receita") {
-        $receitas +=
-            $linha['valor'];
+        $receitas += $linha['valor'];
+        $qtdReceitas++;
     } else {
-        $despesas +=
-            $linha['valor'];
+        $despesas += $linha['valor'];
+        $qtdDespesas++;
     }
 }
 
-$saldo =
-    $receitas - $despesas;
+$saldo = $receitas - $despesas;
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Relatório</title>
+    <title>Relatório Financeiro</title>
+
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <style>
@@ -44,31 +45,66 @@ $saldo =
         background-attachment: fixed;
     }
 
+    .container{
+        width: 80%;
+    }
+
     #titulo {
         background-color: #2c6c51;
         color: white;
         padding: 20px;
         border-radius: 20px;
-        font-size: 30px;
+        text-align: center;
     }
 
-    a {
-        width: 15%;
+    .resumo {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .card {
+        background: #d4e4d6;
+        padding: 20px;
+        border-radius: 15px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    }
+
+    .graficos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .grafico {
+        width: 300px;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    }
+
+    #btnVoltar {
+        width: 150px;
         display: block;
-        margin: auto;
+        margin: 30px auto;
         border-radius: 15px;
         box-shadow: 0px 1px 3px black;
         background-color: #2c6c51;
         color: white;
         text-align: center;
         padding: 10px;
+        text-decoration: none;
     }
 
-    #tabelaResumo{
-        background-color: #d4e4d6;
-        padding: 5px;
-        border-radius: 20px;
-        margin-bottom: 20px;
+    #btnVoltar:hover {
+        background-color: darkolivegreen;
     }
 </style>
 
@@ -76,45 +112,71 @@ $saldo =
 
     <div class="container">
 
-        <h2 id="titulo">Resumo Financeiro</h2>
+        <h2 id="titulo">
+            Gráfico Financeiro
+        </h2>
 
-        <div id="tabelaResumo">
-            <h3>
-                Receitas:
-                R$ <?= number_format(
-                        $receitas,
-                        2,
-                        ',',
-                        '.'
-                    ); ?>
-            </h3>
+        <div class="graficos">
 
-            <h3>
-                Despesas:
-                R$ <?= number_format(
-                        $despesas,
-                        2,
-                        ',',
-                        '.'
-                    ); ?>
-            </h3>
+            <div class="grafico">
+                <canvas id="graficoPizza"></canvas>
+            </div>
 
-            <h2>
-                Saldo:
-                R$ <?= number_format(
-                        $saldo,
-                        2,
-                        ',',
-                        '.'
-                    ); ?>
-            </h2>
+            <div class="grafico">
+                <canvas id="graficoBarra"></canvas>
+            </div>
+
         </div>
 
-        <a href="dashboard.php">
+        <a href="dashboard.php" id="btnVoltar">
             Voltar
         </a>
 
     </div>
+
+    <script>
+        new Chart(
+            document.getElementById('graficoPizza'), {
+                type: 'pie',
+                data: {
+                    labels: ['Receitas', 'Despesas'],
+                    datasets: [{
+                        data: [
+                            <?= $receitas ?>,
+                            <?= $despesas ?>
+                        ],
+                        backgroundColor: [
+                            '#2c6c51',
+                            '#c0392b'
+                        ]
+                    }]
+                }
+            }
+        );
+
+        new Chart(
+            document.getElementById('graficoBarra'), {
+                type: 'bar',
+                data: {
+                    labels: ['Receitas', 'Despesas'],
+                    datasets: [{
+                        label: 'Valores (R$)',
+                        data: [
+                            <?= $receitas ?>,
+                            <?= $despesas ?>
+                        ],
+                        backgroundColor: [
+                            '#2c6c51',
+                            '#c0392b'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            }
+        );
+    </script>
 
 </body>
 
