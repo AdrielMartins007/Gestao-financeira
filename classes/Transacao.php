@@ -12,7 +12,7 @@ class Transacao
         $this->conexao = $db->conectar();
     }
 
-    public function cadastrar(
+    public function cadastrar( /* FUNCAO CADASTRAR ONDE VAI PEGAR VALORES QUE SERA INCLUIDOS NO INPUT */
         $descricao,
         $valor,
         $data,
@@ -20,7 +20,7 @@ class Transacao
         $idUsuario,
         $idCategoria
     ) {
-        $sql = "INSERT INTO transacoes
+        $sql = "INSERT INTO transacoes /* COMANDO SQL PARA O ENVIO DOS DADOS PARA O BANCO DE DADOS */
         (
             descricao,
             valor,
@@ -39,12 +39,12 @@ class Transacao
             '$idCategoria'
         )";
 
-        return $this->conexao->query($sql);
+        return $this->conexao->query($sql); /* EXECUTANDO O COMANDO SQL E ENVIANDO OS DADOS */
     }
 
-    public function listar($idUsuario)
+    public function listar($idUsuario) /* LISTANDO TODAS AS TRANSAÇÕES CADASTRADAS NO USUARIO LOGADO */
     {
-        $sql = "SELECT t.*,
+        $sql = "SELECT t.*, /* COMANDO SQL PARA BUSCAR DO BANCO DE DADOS */
                        c.nome AS categoria
                 FROM transacoes t
                 INNER JOIN categorias c
@@ -52,12 +52,12 @@ class Transacao
                 WHERE t.id_usuario = '$idUsuario'
                 ORDER BY t.data DESC";
 
-        return $this->conexao->query($sql);
+        return $this->conexao->query($sql); /* EXECUTANDO O COMANDO SQL */
     }
 
-    public function buscar($id)
+    public function buscar($id) /* FUNCAO QUE ESTA LIGADO COM O BOTAO 'EDITAR' */
     {
-        $sql = "SELECT * FROM transacoes
+        $sql = "SELECT * FROM transacoes /* COMANDO SQL PARA LISTAR TODAS AS TRANSAÇÕES LIGADAS AO ID DO USUARIO */
                 WHERE id_transacao = '$id'";
 
         $resultado = $this->conexao->query($sql);
@@ -65,13 +65,13 @@ class Transacao
         return $resultado->fetch_assoc();
     }
 
-    public function editar(
+    public function editar( /* FUNCAO EDITAR VALORES DA TRANSAÇÃO */
         $id,
         $descricao,
         $valor,
         $data
     ) {
-        $sql = "UPDATE transacoes
+        $sql = "UPDATE transacoes /* COMANDO SQL PARA O ENVIO DOS VALORES ATUALIZADOS */
                 SET descricao='$descricao',
                     valor='$valor',
                     data='$data'
@@ -80,11 +80,11 @@ class Transacao
         return $this->conexao->query($sql);
     }
 
-    public function excluir($id)
+    public function excluir($id) /* FUNCAO PARA EXCLUIR TRANSAÇÃO CADASTRADA NO USUARIO LOGADO */
     {
-        $sql = "DELETE FROM transacoes
+        $sql = "DELETE FROM transacoes /* COMANDO SQL PARA EXLUIR A TRANSAÇÃO SELECIONADA */
                 WHERE id_transacao='$id'";
 
-        return $this->conexao->query($sql);
+        return $this->conexao->query($sql); /* EXECUTANDO O COMANDO */
     }
 }
